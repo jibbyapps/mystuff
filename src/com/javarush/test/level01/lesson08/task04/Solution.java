@@ -7,12 +7,13 @@ public class Solution
 {
     public static void main(String[] args)
     {
-        int a =5;
-        System.out.println(a*a);
+        int b = sqr(5);
+        System.out.println(b);
     }
 
     public static int sqr(int a)
     {
-        return a * a;
+
+       return a * a;
     }
 }
