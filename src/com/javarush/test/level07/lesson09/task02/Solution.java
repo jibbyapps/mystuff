@@ -19,6 +19,7 @@ public class Solution
         for (int i= 0; i<5; i++ ){
             list.add(reader.readLine());
 
+
              }
 
         list.remove(2);

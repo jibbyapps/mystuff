@@ -16,8 +16,20 @@ public class Solution
 {
     public static void main(String[] args) throws IOException
     {
+        ArrayList<Integer>list = new ArrayList<Integer>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+        for (int i=0;i<10;i++){
+            list.add(Integer.parseInt(reader.readLine()));
+        }
+
+        for (int i = list.size()-1; i >= 0; i--)
+        {
+            System.out.println(list.get(i));
+        }
+
+
+        }
         //напишите тут ваш код
-    }
+
 }
