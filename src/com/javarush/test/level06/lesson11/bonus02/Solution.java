@@ -33,60 +33,39 @@ public class Solution
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-
-        String granFatherName = reader.readLine();
-        Cat granFather = new Cat(granFatherName, null, null);
-
-        String granMotherName = reader.readLine();
-        Cat granMother = new Cat(granMotherName, null, null);
-
-        String fatherName = reader.readLine();
-        Cat catFather = new Cat(fatherName, granFather,null);
-
         String motherName = reader.readLine();
-        Cat catMother = new Cat(motherName, null, granMother);
-
-        String sonName = reader.readLine();
-        Cat catSon = new Cat(sonName,catFather ,catMother );
+        Cat catMother = new Cat(motherName);
 
         String daughterName = reader.readLine();
-        Cat catDaughter = new Cat(daughterName,catFather,catMother);
+        Cat catDaughter = new Cat(daughterName, catMother);
 
-        System.out.println(granFather);
-        System.out.println(granMother);
-        System.out.println(catFather);
         System.out.println(catMother);
-        System.out.println(catSon);
         System.out.println(catDaughter);
-
     }
 
     public static class Cat
     {
         private String name;
-        private Cat catMother;
-        private Cat catFather;
+        private Cat parent;
 
-
-
-        Cat(String name, Cat catFather, Cat catMother)
+        Cat(String name)
         {
             this.name = name;
-            this.catFather = catFather;
-            this.catMother = catMother;
+        }
+
+        Cat(String name, Cat parent)
+        {
+            this.name = name;
+            this.parent = parent;
         }
 
         @Override
         public String toString()
         {
-            String text = "Cat name is " + name;
-            if(catFather != null){text+= ", father is " + catFather.name;}
-            else {text+= ", no father";}
-            if(catMother != null){text+= ", mother is " + catMother.name;}
-            else {text+= ", no mother";}
-
-
-            return text;
+            if (parent == null)
+                return "Cat name is " + name + ", no mother ";
+            else
+                return "Cat name is " + name + ", mother is " + parent.name;
         }
     }
 
